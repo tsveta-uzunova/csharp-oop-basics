@@ -1,37 +1,28 @@
-﻿using _02._Articles;
+﻿using _01._Students;
 
-string articleDate = Console.ReadLine();
+int numberStudent = int.Parse(Console.ReadLine());
 
-string title = articleDate.Split(", ")[0];
-string content = articleDate.Split(", ")[1];
-string author = articleDate.Split(", ")[2];
+List<Student> students = new List<Student>();
 
-Article article = new Article(title, content, author);
-
-int numberOfCommands = int.Parse(Console.ReadLine());
-for (int i = 1; i <= numberOfCommands; i++)
+for (int i = 0; i < numberStudent; i++)
 {
-    string command = Console.ReadLine();
-    string[] commandParts = command.Split(": ");
-    string commandName = commandParts[0];
-    string commandParameter = commandParts[1];
+    string[] data = Console.ReadLine().Split(" ").ToArray();
 
-    switch (commandName)
+    Student student = new Student()
     {
-        case "Edit":
-            article.Edit(commandParameter);
-             break;
-        case "ChangeAuthor":
-            article.ChangeAuthor(commandParameter);
-            break;
-        case "Rename":
-            article.Rename(commandParameter);
-            break;
-    }
+        FirstName = data[0],
+        LastName = data[1],
+        Grade = double.Parse(data[2]),
+    };
+
+    students.Add(student);
 }
 
-Console.WriteLine(article.ToString());
+students = students
+    .OrderByDescending(student => student.Grade)
+    .ToList();
 
-
-
-
+foreach (Student student in students)
+{
+    Console.WriteLine($"{student.FirstName} {student.LastName}: {student.Grade:F2}");
+}
