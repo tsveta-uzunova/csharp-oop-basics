@@ -1,5 +1,4 @@
 ﻿using _01._Students;
-using System.Diagnostics;
 
 int numberStudent = int.Parse(Console.ReadLine());
 
