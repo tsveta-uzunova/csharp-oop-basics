@@ -1,4 +1,4 @@
-﻿using _01._Students;
+﻿using _02._Students;
 
 int numberStudent = int.Parse(Console.ReadLine());
 

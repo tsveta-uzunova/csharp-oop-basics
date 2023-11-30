@@ -1,5 +1,4 @@
-﻿
-namespace _01._Students
+﻿namespace _02._Students
 {
     public class Student
     {
