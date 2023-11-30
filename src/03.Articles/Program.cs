@@ -1,5 +1,4 @@
 ﻿using _02._Articles;
-using System.Diagnostics;
 
 string articleDate = Console.ReadLine();
 
