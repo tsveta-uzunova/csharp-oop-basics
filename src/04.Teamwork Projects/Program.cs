@@ -1,4 +1,4 @@
-﻿using _03.TeamworkProjects;
+﻿using _04.TeamworkProjects;
 
 int numberOfTeams = int.Parse(Console.ReadLine());
 List<Team> teams = new();
