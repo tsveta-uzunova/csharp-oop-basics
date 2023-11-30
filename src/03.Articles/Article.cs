@@ -1,4 +1,4 @@
-﻿namespace _02._Articles
+﻿namespace _03._Articles
 {
     public class Article
     {
