@@ -1,11 +1,11 @@
 ﻿using _05._PokemonTrainer;
 
-string command = Console.ReadLine();
-List<Trainer> trainers = new();
+List<Trainer> trainers = new List<Trainer>();
 
+string command = Console.ReadLine();
 while (command != "Tournament")
 {
-    string[] data = command.Split(" ");
+    string[] data = command.Split();
     string trainerName = data[0];
     string pokemonName = data[1];
     string pokemonElement = data[2];
@@ -18,11 +18,12 @@ while (command != "Tournament")
     }
 
     var trainer = trainers.First(trainer => trainer.Name == trainerName);
-    trainer.PokemonCollection.Add(pokemon);
+    trainer.Pokemons.Add(pokemon);
 
     command = Console.ReadLine();
 }
 
+command = Console.ReadLine();
 while (command != "End")
 {
     foreach (var trainer in trainers)
@@ -33,9 +34,13 @@ while (command != "End")
     command = Console.ReadLine();
 }
 
-var sortedTrainers = trainers.OrderByDescending(trainer => trainer.NumberOfBadges);
+PrintTrainers(trainers);
 
-foreach (var trainer in sortedTrainers)
+
+static void PrintTrainers(List<Trainer> trainers)
 {
-    Console.WriteLine($"{trainer.Name} {trainer.NumberOfBadges} {trainer.PokemonCollection.Count}");
+    foreach (Trainer trainer in trainers.OrderByDescending(t => t.Badges))
+    {
+        Console.WriteLine($"{trainer.Name} {trainer.Badges} {trainer.Pokemons.Count}");
+    }
 }

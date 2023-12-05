@@ -3,31 +3,32 @@
 public class Trainer
 {
     public string Name { get; set; }
-    public int NumberOfBadges { get; set; }
-    public List<Pokemon> PokemonCollection { get; set; }
+    public int Badges { get; set; }
+    public List<Pokemon> Pokemons { get; set; }
 
     public Trainer(string name)
     {
         Name = name;
-        NumberOfBadges = 0;
-        PokemonCollection = new List<Pokemon>();
+        Badges = 0;
+        Pokemons = new List<Pokemon>();
     }
 
     public void CheckPokemonElement(string element)
     {
-        bool hasPokemonWithElement = PokemonCollection.Any(p => p.Element == element);
-        if (hasPokemonWithElement)
+        if (Pokemons.Any(p => p.Element == element))
         {
-            NumberOfBadges++;
+            Badges++;
         }
         else
         {
-            foreach (var pokemon in PokemonCollection)
+            foreach (Pokemon pokemon in Pokemons)
             {
                 pokemon.Health -= 10;
             }
+
         }
-        PokemonCollection.RemoveAll(p => p.Health <= 0);
+
+        Pokemons.RemoveAll(p => p.Health <= 0);
     }
 
 }
