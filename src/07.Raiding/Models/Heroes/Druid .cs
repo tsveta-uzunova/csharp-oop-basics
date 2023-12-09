@@ -1,5 +1,4 @@
 ﻿
-
 namespace _07.Raiding.Models.Heroes
 {
     public class Druid : Healer
